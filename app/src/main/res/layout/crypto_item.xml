@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
 
     <ImageView
+        android:id="@+id/crypto_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/crypto_icon"
-        tools:src="@drawable/ic_launcher_background"/>
+        tools:src="@drawable/ic_launcher_background" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+
         <TextView
+            android:id="@+id/crypto_full_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="BTC"
-            android:id="@+id/crypto_full_name" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BTC" />
+
         <TextView
+            android:id="@+id/crypto_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="BTC"
-            android:id="@+id/crypto_price"/>
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BTC" />
+
+        <TextView
+            android:id="@+id/crypto_short_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="BTC"
-                android:id="@+id/crypto_short_name"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="BTC"
-                android:id="@+id/crypto_income"/>
-        </LinearLayout>
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="BTC" />
+
+        <TextView
+            android:id="@+id/crypto_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="BTC" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
