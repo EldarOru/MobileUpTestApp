@@ -6,31 +6,55 @@ import com.example.mobileuptestapp.core.data.RetrofitClient
 import com.example.mobileuptestapp.core.domain.FailureFactory
 import com.example.mobileuptestapp.core.presentation.Communication
 import com.example.mobileuptestapp.core.presentation.State
-import com.example.mobileuptestapp.detail.data.CryptoRemoveDataSource
-import com.example.mobileuptestapp.main.data.BaseMainRepository
-import com.example.mobileuptestapp.main.domain.BaseMainIteractor
+import com.example.mobileuptestapp.detail.data.CryptoDetailedRemoteDataSource
+import com.example.mobileuptestapp.detail.data.CryptoDetailedRepository
+import com.example.mobileuptestapp.detail.domain.CryptoDetailedIteractor
+import com.example.mobileuptestapp.detail.presenation.CryptoDetailedUi
+import com.example.mobileuptestapp.detail.presenation.CryptoDetailedViewModel
+import com.example.mobileuptestapp.main.data.CryptoRemoteDataSource
+import com.example.mobileuptestapp.main.data.MainRepository
+import com.example.mobileuptestapp.main.domain.MainIteractor
 import com.example.mobileuptestapp.main.presentation.CryptoUi
 import com.example.mobileuptestapp.main.presentation.MainViewModel
 
-class App: Application(), ProvideMainViewModel {
+class App: Application(), ProvideMainViewModel, ProvideDetailedViewModel {
     private lateinit var viewModel: MainViewModel
+
+    private lateinit var detailedViewModel: CryptoDetailedViewModel
 
     override fun onCreate() {
         super.onCreate()
 
-        val cryptoRemoveDataSource = CryptoRemoveDataSource(RetrofitClient().retrofitServices)
-        val baseMainRepository = BaseMainRepository(cryptoRemoveDataSource)
+        val service = RetrofitClient().retrofitServices
+        //TODO отдельный класс для всей этой генерации
+        val cryptoRemoteDataSource = CryptoRemoteDataSource(service)
+        val mainRepository = MainRepository(cryptoRemoteDataSource)
         val failureFactory = FailureFactory(BaseResourceManager(applicationContext))
         viewModel = MainViewModel(
-            BaseMainIteractor(baseMainRepository, failureFactory),
+            MainIteractor(mainRepository, failureFactory),
             Communication.Base<State<List<CryptoUi>>>()
+        )
+
+        val cryptoDetailedDataSource = CryptoDetailedRemoteDataSource(service)
+        val detailedRepository = CryptoDetailedRepository(cryptoDetailedDataSource)
+
+        detailedViewModel = CryptoDetailedViewModel(
+            CryptoDetailedIteractor(detailedRepository, failureFactory),
+            Communication.Base<State<CryptoDetailedUi>>()
         )
     }
 
     override fun provideMainVideModel() = viewModel
+
+    override fun provideDetailedViewModel() = detailedViewModel
 }
 
 interface ProvideMainViewModel {
 
     fun provideMainVideModel(): MainViewModel
+}
+
+interface ProvideDetailedViewModel {
+
+    fun provideDetailedViewModel(): CryptoDetailedViewModel
 }

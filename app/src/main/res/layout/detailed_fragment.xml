@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,23 +21,63 @@
 
             <ImageView
                 android:id="@+id/back_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:src="@drawable/ic_launcher_background" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/back_arrow_foreground"/>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/crypto_toolbar_name"
+                app:titleTextColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="@string/app_name" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
+    <ProgressBar
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:visibility="visible"
+        android:id="@+id/progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:textColor="@color/black"
+        style="@style/ErrorText"
+        android:id="@+id/error_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/retry_button"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ErrorButton"
+        android:id="@+id/retry_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_tv"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/info_layout"
+            android:visibility="gone">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:src="@drawable/ic_launcher_background"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/detailed_image"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,22 +87,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:textSize="30sp"
+                style="@style/DefaultText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/description"/>
             <TextView
+                style="@style/DefaultText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/description_tv"/>
             <TextView
+                android:textSize="30sp"
+                style="@style/DefaultText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/category"/>
             <TextView
+                style="@style/DefaultText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/category_tv"/>
         </LinearLayout>
     </ScrollView>
-
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

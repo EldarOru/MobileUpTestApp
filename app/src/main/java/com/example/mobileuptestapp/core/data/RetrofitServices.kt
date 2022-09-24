@@ -1,6 +1,6 @@
 package com.example.mobileuptestapp.core.data
 
-import com.example.mobileuptestapp.detail.data.CryptoDetailed
+import com.example.mobileuptestapp.detail.data.CryptoDetailedModel
 import com.example.mobileuptestapp.main.data.CryptoModel
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,7 +17,7 @@ interface RetrofitServices {
     @GET("coins/{id}")
     suspend fun getDetailedCrypto(
         @Path("id") id: String
-    ) : CryptoDetailed
+    ) : CryptoDetailedModel
 
     companion object {
         private const val DEFAULT_PAGE_SIZE = 25

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileuptestapp.core.presentation.State
 import com.example.mobileuptestapp.core.presentation.StateHandler
 
-class BaseStateHandler(
+class MainStateHandler(
     private val progressBar: ProgressBar,
     private val errorButton: Button,
     private val errorText: TextView,

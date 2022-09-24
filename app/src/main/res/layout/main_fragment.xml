@@ -8,7 +8,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,6 +17,7 @@
             android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
+            app:titleTextColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="@string/app_name"/>
@@ -30,11 +32,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/usd_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:text="@string/usd"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/eur_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:text="@string/eur"/>
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
@@ -55,24 +59,16 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:text="@string/error"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ErrorText"
         android:id="@+id/error_tv"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/retry_button"
         app:layout_constraintVertical_chainStyle="packed"/>
 
-    <Button
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/retry"
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ErrorButton"
         android:id="@+id/retry_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

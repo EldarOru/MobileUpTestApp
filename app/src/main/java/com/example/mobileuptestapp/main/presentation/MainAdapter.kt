@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileuptestapp.databinding.CryptoItemBinding
 
-class MainAdapter : ListAdapter<CryptoUi, MainAdapter.CryptoVH>(
+class MainAdapter(private val click: (CryptoUi) -> Unit) : ListAdapter<CryptoUi, MainAdapter.CryptoVH>(
     AsyncDifferConfig.Builder(DiffCallback()).build()
 ) {
 
@@ -17,17 +17,20 @@ class MainAdapter : ListAdapter<CryptoUi, MainAdapter.CryptoVH>(
     }
 
     override fun onBindViewHolder(holder: CryptoVH, position: Int) {
-        holder.bind(currentList[position])
+        holder.bind(currentList[position],click)
     }
 
     class CryptoVH(private val cryptoItemBinding: CryptoItemBinding) :
         RecyclerView.ViewHolder(cryptoItemBinding.root) {
-            fun bind(cryptoUi: CryptoUi) {
+            fun bind(cryptoUi: CryptoUi, click: (CryptoUi) -> Unit) {
                 cryptoUi.setInfo(cryptoItemBinding.cryptoFullName,
                 cryptoItemBinding.cryptoIcon,
                 cryptoItemBinding.cryptoPrice,
                 cryptoItemBinding.cryptoIncome,
                 cryptoItemBinding.cryptoShortName)
+                cryptoItemBinding.root.setOnClickListener {
+                    click.invoke(cryptoUi)
+                }
             }
         }
 

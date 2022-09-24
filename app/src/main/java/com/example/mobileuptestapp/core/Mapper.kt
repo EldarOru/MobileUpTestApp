@@ -12,3 +12,8 @@ interface ToMapper<R> {
 
     fun map(): R
 }
+
+interface ToMapperWith<R, T>{
+
+    fun map(data: T): R
+}

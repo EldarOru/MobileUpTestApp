@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileuptestapp.ProvideMainViewModel
 import com.example.mobileuptestapp.core.presentation.BaseFragment
 import com.example.mobileuptestapp.databinding.MainFragmentBinding
+import com.example.mobileuptestapp.detail.presenation.DetailedFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,7 +35,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
         setRecyclerView()
 
         val stateHandler =
-            BaseStateHandler(progressBar, errorButton, errorTextView, recyclerView, mainAdapter)
+            MainStateHandler(progressBar, errorButton, errorTextView, recyclerView, mainAdapter)
 
         viewModel = (activity?.application as ProvideMainViewModel).provideMainVideModel()
 
@@ -46,14 +48,23 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
 
     private fun setRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(context)
-        mainAdapter = MainAdapter()
+        mainAdapter = MainAdapter {
+            //TODO сделать отдельный класс, к которому будем мапиться
+            showFragment.show(DetailedFragment.newInstance(it.getId(), it.getName()))
+        }
         recyclerView.adapter = mainAdapter
     }
 
+    //TODO поменять
     private fun setClickListeners() {
         binding.usdChip.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
+            lifecycleScope.launch {
                 viewModel.getData("usd")
+            }
+        }
+        binding.eurChip.setOnClickListener {
+            lifecycleScope.launch {
+                viewModel.getData("eur")
             }
         }
     }

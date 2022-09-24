@@ -2,7 +2,7 @@ package com.example.mobileuptestapp.core.domain
 
 import com.example.mobileuptestapp.core.presentation.State
 
-interface MainIteractor<T> {
+interface Iteractor<T> {
 
-    suspend fun getItemList(type: String): State<T>
+    suspend fun getDataState(type: String): State<T>
 }

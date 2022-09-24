@@ -1,5 +1,5 @@
 package com.example.mobileuptestapp.main.domain
-
+/*
 import com.example.mobileuptestapp.core.presentation.Failure
 import com.example.mobileuptestapp.core.ToMapper
 import com.example.mobileuptestapp.main.presentation.CryptoUi
@@ -25,3 +25,5 @@ sealed class CryptoItem: ToMapper<CryptoUi> {
         }
     }
 }
+
+ */

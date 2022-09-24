@@ -1,20 +1,29 @@
 package com.example.mobileuptestapp.detail.data
 
-data class CryptoDetailed(
+import com.example.mobileuptestapp.core.ToMapper
+import com.example.mobileuptestapp.detail.presenation.CryptoDetailedUi
+
+data class CryptoDetailedModel(
     private val id: String,
     private val symbol: String,
     private val name: String,
     private val description: Description,
     private val categories: List<String>,
     private val image: Image
-)
+) : ToMapper<CryptoDetailedUi> {
 
-data class Description(
-    private val en: String
-)
+    override fun map(): CryptoDetailedUi {
+        return CryptoDetailedUi(id, symbol, name, description.en, categories, image.large)
+    }
 
-data class Image(
-    private val thumb: String,
-    private val small: String,
-    private val large: String
-)
+    data class Description(
+        val en: String
+    )
+
+    data class Image(
+        val thumb: String,
+        val small: String,
+        val large: String
+    )
+}
+
