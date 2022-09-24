@@ -1,4 +1,4 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.main.presentation
 
 import android.view.View
 import android.widget.Button
@@ -6,13 +6,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mobileuptestapp.main.presentation.CryptoUi
-import com.example.mobileuptestapp.main.presentation.MainAdapter
-
-interface StateHandler<T> {
-
-    fun setState(state: State<T>)
-}
+import com.example.mobileuptestapp.core.presentation.State
+import com.example.mobileuptestapp.core.presentation.StateHandler
 
 class BaseStateHandler(
     private val progressBar: ProgressBar,
@@ -20,7 +15,7 @@ class BaseStateHandler(
     private val errorText: TextView,
     private val recyclerView: RecyclerView,
     private val adapter: ListAdapter<CryptoUi, MainAdapter.CryptoVH>
-) : StateHandler<List<CryptoUi>>{
+) : StateHandler<List<CryptoUi>> {
 
     private fun showLoading() {
         errorButton.visibility = View.GONE
@@ -33,10 +28,9 @@ class BaseStateHandler(
         recyclerView.visibility = View.GONE
         progressBar.visibility = View.GONE
         errorButton.visibility = View.VISIBLE
-        errorText.apply {
-            visibility = View.VISIBLE
-            text = error
-        }
+        errorText.visibility = View.VISIBLE
+        errorText.text = error
+
     }
 
     private fun showData(data: List<CryptoUi>) {

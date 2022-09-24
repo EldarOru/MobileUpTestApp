@@ -1,5 +1,10 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.main.domain
 
+import com.example.mobileuptestapp.core.data.MainRepository
+import com.example.mobileuptestapp.core.domain.FailureHandler
+import com.example.mobileuptestapp.core.domain.MainIteractor
+import com.example.mobileuptestapp.core.presentation.State
+import com.example.mobileuptestapp.main.data.CryptoModel
 import com.example.mobileuptestapp.main.presentation.CryptoUi
 import java.lang.Exception
 

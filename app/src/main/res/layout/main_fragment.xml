@@ -40,29 +40,53 @@
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <ProgressBar
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:visibility="visible"
-        android:id="@+id/progress_bar"/>
+        android:id="@+id/progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@string/error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/error_tv"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/retry_button"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <Button
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/retry"
-        android:id="@+id/retry_button"/>
+        android:id="@+id/retry_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_tv"/>
 
     <androidx.recyclerview.widget.RecyclerView
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/crypto_rv"/>
+        android:id="@+id/crypto_rv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

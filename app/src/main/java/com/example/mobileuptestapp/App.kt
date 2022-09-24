@@ -2,6 +2,13 @@ package com.example.mobileuptestapp
 
 import android.app.Application
 import com.example.mobileuptestapp.core.*
+import com.example.mobileuptestapp.core.data.RetrofitClient
+import com.example.mobileuptestapp.core.domain.FailureFactory
+import com.example.mobileuptestapp.core.presentation.Communication
+import com.example.mobileuptestapp.core.presentation.State
+import com.example.mobileuptestapp.detail.data.CryptoRemoveDataSource
+import com.example.mobileuptestapp.main.data.BaseMainRepository
+import com.example.mobileuptestapp.main.domain.BaseMainIteractor
 import com.example.mobileuptestapp.main.presentation.CryptoUi
 import com.example.mobileuptestapp.main.presentation.MainViewModel
 

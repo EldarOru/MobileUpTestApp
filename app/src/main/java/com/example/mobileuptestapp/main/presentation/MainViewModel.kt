@@ -4,7 +4,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mobileuptestapp.core.*
+import com.example.mobileuptestapp.core.domain.MainIteractor
+import com.example.mobileuptestapp.core.presentation.Communication
+import com.example.mobileuptestapp.core.presentation.State
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

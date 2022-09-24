@@ -1,4 +1,4 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.detail.data
 
 data class CryptoDetailed(
     private val id: String,

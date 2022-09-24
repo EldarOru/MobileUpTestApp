@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:layout_margin="@dimen/default_dimen">
 
     <ImageView
         android:id="@+id/crypto_icon"
@@ -20,35 +21,30 @@
         android:orientation="vertical">
 
         <TextView
-            android:textColor="@color/black"
-            android:textSize="40sp"
+            android:textSize="20sp"
             android:id="@+id/crypto_full_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="BTC" />
+            tools:text="BTC"
+            style="@style/DefaultText"/>
 
         <TextView
+            style="@style/DefaultText"
             android:id="@+id/crypto_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="BTC" />
 
         <TextView
             android:id="@+id/crypto_short_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/DefaultText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="BTC" />
 
-        <TextView
+        <com.example.mobileuptestapp.customviews.PositiveAndNegativeTextView
             android:id="@+id/crypto_income"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/DefaultText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="BTC" />

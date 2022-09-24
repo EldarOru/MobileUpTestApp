@@ -1,7 +1,8 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.core.presentation
 
 import androidx.annotation.StringRes
 import com.example.mobileuptestapp.R
+import com.example.mobileuptestapp.core.ResourceManager
 
 abstract class BaseFailure(private val resourceManager: ResourceManager) : Failure {
 

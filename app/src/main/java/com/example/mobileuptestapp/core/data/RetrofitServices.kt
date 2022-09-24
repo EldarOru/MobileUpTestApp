@@ -1,6 +1,7 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.core.data
 
-import retrofit2.Call
+import com.example.mobileuptestapp.detail.data.CryptoDetailed
+import com.example.mobileuptestapp.main.data.CryptoModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

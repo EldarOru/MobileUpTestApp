@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileuptestapp.ProvideMainViewModel
-import com.example.mobileuptestapp.core.BaseFragment
-import com.example.mobileuptestapp.core.BaseStateHandler
+import com.example.mobileuptestapp.core.presentation.BaseFragment
 import com.example.mobileuptestapp.databinding.MainFragmentBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainFragment : BaseFragment<MainFragmentBinding>() {
 
@@ -34,7 +32,8 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
 
         setRecyclerView()
 
-        val stateHandler = BaseStateHandler(progressBar, errorButton, errorTextView, recyclerView, mainAdapter)
+        val stateHandler =
+            BaseStateHandler(progressBar, errorButton, errorTextView, recyclerView, mainAdapter)
 
         viewModel = (activity?.application as ProvideMainViewModel).provideMainVideModel()
 

@@ -1,8 +1,9 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.core.presentation
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.example.mobileuptestapp.core.Mapper
 
 interface Communication {
 

@@ -23,7 +23,11 @@ class MainAdapter : ListAdapter<CryptoUi, MainAdapter.CryptoVH>(
     class CryptoVH(private val cryptoItemBinding: CryptoItemBinding) :
         RecyclerView.ViewHolder(cryptoItemBinding.root) {
             fun bind(cryptoUi: CryptoUi) {
-                cryptoUi.setInfo(cryptoItemBinding.cryptoFullName)
+                cryptoUi.setInfo(cryptoItemBinding.cryptoFullName,
+                cryptoItemBinding.cryptoIcon,
+                cryptoItemBinding.cryptoPrice,
+                cryptoItemBinding.cryptoIncome,
+                cryptoItemBinding.cryptoShortName)
             }
         }
 

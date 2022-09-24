@@ -1,4 +1,4 @@
-package com.example.mobileuptestapp.core
+package com.example.mobileuptestapp.core.data
 
 interface RemoteDataSource<T> {
 
