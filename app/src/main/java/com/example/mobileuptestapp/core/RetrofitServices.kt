@@ -11,12 +11,12 @@ interface RetrofitServices {
     suspend fun getCrypto(
         @Query("vs_currency") currency: String,
         @Query("per_page") perPage: Int = DEFAULT_PAGE_SIZE,
-    ) : Call<List<CryptoItem>>
+    ) : List<CryptoModel>
 
     @GET("coins/{id}")
     suspend fun getDetailedCrypto(
         @Path("id") id: String
-    ) : Call<CryptoDetailed>
+    ) : CryptoDetailed
 
     companion object {
         private const val DEFAULT_PAGE_SIZE = 25

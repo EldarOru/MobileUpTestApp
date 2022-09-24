@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/crypto_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:src="@drawable/ic_launcher_background" />
+        tools:src="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_launcher_background"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +20,8 @@
         android:orientation="vertical">
 
         <TextView
+            android:textColor="@color/black"
+            android:textSize="40sp"
             android:id="@+id/crypto_full_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
