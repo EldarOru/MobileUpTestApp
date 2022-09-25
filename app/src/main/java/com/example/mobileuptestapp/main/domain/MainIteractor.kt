@@ -9,13 +9,13 @@ import com.example.mobileuptestapp.main.presentation.CryptoUi
 import java.lang.Exception
 
 class MainIteractor(
-    private val repository: Repository<CryptoModel>,
+    private val repository: Repository<List<CryptoModel>>,
     private val handler: FailureHandler
 ) : Iteractor<List<CryptoUi>> {
 
     override suspend fun getDataState(type: String): State<List<CryptoUi>> {
         return try {
-            State.Loaded(repository.getItemList(type).map { it.map(type) })
+            State.Loaded(repository.getData(type).map { it.map(type) })
         } catch (e: Exception) {
             State.Error(handler.handle(e))
         }

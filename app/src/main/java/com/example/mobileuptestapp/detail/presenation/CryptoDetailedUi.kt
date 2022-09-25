@@ -3,9 +3,6 @@ package com.example.mobileuptestapp.detail.presenation
 import com.squareup.picasso.Picasso
 
 class CryptoDetailedUi(
-    private val id: String,
-    private val symbol: String,
-    private val name: String,
     private val description: String,
     private val categories: List<String>,
     private val image: String
@@ -13,7 +10,7 @@ class CryptoDetailedUi(
 
     fun setInfo(infoLayout: InfoLayout) {
         Picasso.get().load(image).into(infoLayout.imageView)
-        infoLayout.description.text = cleanDescription()
+        infoLayout.description.text = cleanDescriptionFromHref()
         infoLayout.categories.text = categoriesToString()
     }
 
@@ -25,7 +22,7 @@ class CryptoDetailedUi(
         return res
     }
 
-    private fun cleanDescription(): String {
+    private fun cleanDescriptionFromHref(): String {
         val secRegex = Regex("<[^>]*>")
         return secRegex.replace(this.description, "")
     }

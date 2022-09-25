@@ -22,9 +22,9 @@ data class CryptoUi(
     fun setInfo(name: TextView, image: ImageView, currentPrice: TextView, change: PositiveAndNegativeTextView,
         shortName: TextView) {
         name.text = this.name
-        currentPrice.text = "${getCurrency()} + ${this.current_price}"
+        currentPrice.text = "${getCurrency()} ${this.current_price}"
         change.setText(ath_change_percentage)
-        shortName.text = symbol
+        shortName.text = symbol.uppercase()
         //TODO сделать отдельный класс для картинок
         Picasso.get().load(this.image).into(image)
     }

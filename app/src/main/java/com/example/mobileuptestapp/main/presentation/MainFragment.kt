@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 
 class MainFragment : BaseFragment<MainFragmentBinding>() {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel<List<CryptoUi>>
     private lateinit var recyclerView: RecyclerView
     private lateinit var mainAdapter: MainAdapter
 
@@ -41,7 +41,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
 
         setClickListeners()
 
-        viewModel.observeList(this) {
+        viewModel.observeData(this) {
             stateHandler.setState(it)
         }
     }

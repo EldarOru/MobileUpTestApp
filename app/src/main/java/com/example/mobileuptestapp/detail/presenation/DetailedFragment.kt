@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class DetailedFragment : BaseFragment<DetailedFragmentBinding>() {
 
-    private lateinit var viewModel: CryptoDetailedViewModel
+    private lateinit var viewModel: CryptoDetailedViewModel<CryptoDetailedUi>
 
     override fun initBinding(
         inflater: LayoutInflater,
@@ -40,7 +40,7 @@ class DetailedFragment : BaseFragment<DetailedFragmentBinding>() {
         viewModel = (activity?.application as ProvideDetailedViewModel).provideDetailedViewModel()
         setListeners()
         setBegin()
-        viewModel.observeList(this) {
+        viewModel.observeData(this) {
             detailedStateHandler.setState(it)
         }
 

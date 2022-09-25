@@ -1,16 +1,16 @@
 package com.example.mobileuptestapp.detail.data
 
-import com.example.mobileuptestapp.core.data.SingleRemoteDataSource
-import com.example.mobileuptestapp.core.data.SingleRepository
+import com.example.mobileuptestapp.core.data.RemoteDataSource
+import com.example.mobileuptestapp.core.data.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class CryptoDetailedRepository(
-    private val remoteDataSource: SingleRemoteDataSource<CryptoDetailedModel>,
-) : SingleRepository<CryptoDetailedModel> {
+    private val remoteDataSource: RemoteDataSource<CryptoDetailedModel>,
+) : Repository<CryptoDetailedModel> {
 
-    override suspend fun getItem(id: String): CryptoDetailedModel =
+    override suspend fun getData(type: String): CryptoDetailedModel =
         withContext(Dispatchers.IO) {
-            remoteDataSource.getData(id)
+            remoteDataSource.getData(type)
         }
 }

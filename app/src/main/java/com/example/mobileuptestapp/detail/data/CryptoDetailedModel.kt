@@ -13,14 +13,14 @@ data class CryptoDetailedModel(
 ) : ToMapper<CryptoDetailedUi> {
 
     override fun map(): CryptoDetailedUi {
-        return CryptoDetailedUi(id, symbol, name, description.en, categories, image.large)
+        return CryptoDetailedUi(description.en, categories, image.large)
     }
 
-    data class Description(
+    inner class Description(
         val en: String
     )
 
-    data class Image(
+    inner class Image(
         val thumb: String,
         val small: String,
         val large: String

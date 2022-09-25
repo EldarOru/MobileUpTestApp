@@ -1,8 +1,8 @@
 package com.example.mobileuptestapp.core.presentation
 
-sealed class State<T>() {
+sealed class State<T> {
 
-    class isLoading<T>(): State<T>()
+    class IsLoading<T>: State<T>()
 
     class Loaded<T>(private val data: T): State<T>() {
 

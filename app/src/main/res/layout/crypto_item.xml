@@ -36,6 +36,7 @@
             tools:text="BTC" />
 
         <TextView
+            android:textColor="@color/grey"
             android:id="@+id/crypto_short_name"
             style="@style/DefaultText"
             app:layout_constraintBottom_toBottomOf="parent"

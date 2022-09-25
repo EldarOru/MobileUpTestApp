@@ -46,7 +46,7 @@ abstract class StateHandler<T>(
 
     fun setState(state: State<T>) {
         when (state) {
-            is State.isLoading -> showLoading()
+            is State.IsLoading -> showLoading()
             is State.Error -> showError(state.getErrorMessage())
             is State.Loaded -> showData(state.getData())
             is State.Default -> showDefault()

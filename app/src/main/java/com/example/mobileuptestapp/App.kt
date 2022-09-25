@@ -1,7 +1,7 @@
 package com.example.mobileuptestapp
 
 import android.app.Application
-import com.example.mobileuptestapp.core.*
+import com.example.mobileuptestapp.core.BaseResourceManager
 import com.example.mobileuptestapp.core.data.RetrofitClient
 import com.example.mobileuptestapp.core.domain.FailureFactory
 import com.example.mobileuptestapp.core.presentation.Communication
@@ -17,10 +17,10 @@ import com.example.mobileuptestapp.main.domain.MainIteractor
 import com.example.mobileuptestapp.main.presentation.CryptoUi
 import com.example.mobileuptestapp.main.presentation.MainViewModel
 
-class App: Application(), ProvideMainViewModel, ProvideDetailedViewModel {
-    private lateinit var viewModel: MainViewModel
+class App : Application(), ProvideMainViewModel, ProvideDetailedViewModel {
+    private lateinit var viewModel: MainViewModel<List<CryptoUi>>
 
-    private lateinit var detailedViewModel: CryptoDetailedViewModel
+    private lateinit var detailedViewModel: CryptoDetailedViewModel<CryptoDetailedUi>
 
     override fun onCreate() {
         super.onCreate()
@@ -51,10 +51,10 @@ class App: Application(), ProvideMainViewModel, ProvideDetailedViewModel {
 
 interface ProvideMainViewModel {
 
-    fun provideMainVideModel(): MainViewModel
+    fun provideMainVideModel(): MainViewModel<List<CryptoUi>>
 }
 
 interface ProvideDetailedViewModel {
 
-    fun provideDetailedViewModel(): CryptoDetailedViewModel
+    fun provideDetailedViewModel(): CryptoDetailedViewModel<CryptoDetailedUi>
 }
