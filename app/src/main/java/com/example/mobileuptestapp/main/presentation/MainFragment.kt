@@ -44,27 +44,36 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
         viewModel.observeData(this) {
             stateHandler.setState(it)
         }
+
+        binding.chipGroup.checkedChipId
     }
 
     private fun setRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         mainAdapter = MainAdapter {
-            //TODO сделать отдельный класс, к которому будем мапиться
-            showFragment.show(DetailedFragment.newInstance(it.getId(), it.getName()))
+            showFragment.show(DetailedFragment.newInstance(it.map()))
         }
         recyclerView.adapter = mainAdapter
     }
 
     //TODO поменять
     private fun setClickListeners() {
+        var checkedChip = CheckedChip()
         binding.usdChip.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.getData("usd")
+                checkedChip = CheckedChip(it.id, "usd")
             }
         }
         binding.eurChip.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.getData("eur")
+                checkedChip = CheckedChip(it.id, "eur")
+            }
+        }
+        binding.retryButton.setOnClickListener {
+            lifecycleScope.launch {
+                viewModel.getData(checkedChip.type)
             }
         }
     }

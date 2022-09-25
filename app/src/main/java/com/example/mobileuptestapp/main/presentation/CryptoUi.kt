@@ -2,6 +2,7 @@ package com.example.mobileuptestapp.main.presentation
 
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.mobileuptestapp.core.ToMapper
 import com.example.mobileuptestapp.customviews.PositiveAndNegativeTextView
 import com.squareup.picasso.Picasso
 
@@ -13,7 +14,9 @@ data class CryptoUi(
     private val current_price: Double,
     private val ath_change_percentage: Double,
     private val currency: String
-) {
+): ToMapper<CryptoTransfer> {
+
+    override fun map() = CryptoTransfer(id, name)
 
     fun sameId(cryptoUi: CryptoUi) = this.id == cryptoUi.id
 
