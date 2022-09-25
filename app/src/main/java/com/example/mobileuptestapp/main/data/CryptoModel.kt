@@ -1,6 +1,5 @@
 package com.example.mobileuptestapp.main.data
 
-import com.example.mobileuptestapp.core.ToMapper
 import com.example.mobileuptestapp.core.ToMapperWith
 import com.example.mobileuptestapp.main.presentation.CryptoUi
 

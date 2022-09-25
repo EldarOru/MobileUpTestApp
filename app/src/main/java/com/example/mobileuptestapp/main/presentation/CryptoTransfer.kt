@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class CryptoTransfer(
     private val id: String,
     private val name: String,
-): Parcelable {
+) : Parcelable {
 
     //TODO Убрать геттеры
     fun getId() = id

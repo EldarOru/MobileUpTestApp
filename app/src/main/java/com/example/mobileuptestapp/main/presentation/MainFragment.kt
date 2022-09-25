@@ -61,21 +61,13 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
         recyclerView.adapter = mainAdapter
     }
 
-    //TODO поменять
     private fun setClickListeners() {
-        var checkedChip = CheckedChip()
-        binding.usdChip.setOnClickListener {
-            lifecycleScope.launch {
-                viewModel.getData("usd")
-                checkedChip = CheckedChip(it.id, "usd")
-            }
-        }
-        binding.eurChip.setOnClickListener {
-            lifecycleScope.launch {
-                viewModel.getData("eur")
-                checkedChip = CheckedChip(it.id, "eur")
-            }
-        }
+        val checkedChip = CheckedChip()
+
+        ChipListener.USDChip(binding.usdChip, lifecycleScope).click(viewModel, checkedChip)
+
+        ChipListener.EURChip(binding.eurChip, lifecycleScope).click(viewModel, checkedChip)
+
         binding.retryButton.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.getData(checkedChip.type)

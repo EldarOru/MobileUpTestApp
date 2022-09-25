@@ -21,8 +21,6 @@ data class CryptoDetailedModel(
     )
 
     inner class Image(
-        val thumb: String,
-        val small: String,
         val large: String
     )
 }

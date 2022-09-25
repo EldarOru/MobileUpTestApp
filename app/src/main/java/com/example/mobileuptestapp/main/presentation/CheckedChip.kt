@@ -2,7 +2,9 @@ package com.example.mobileuptestapp.main.presentation
 
 class CheckedChip(
     private val id: Int = -1,
-    val type: String = ""
+    var type: String = ""
 ) {
-    fun checkId(id: Int) = this.id == id
+    fun changeType(type: String) {
+        this.type = type
+    }
 }

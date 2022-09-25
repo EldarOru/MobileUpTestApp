@@ -6,7 +6,6 @@ import com.example.mobileuptestapp.core.domain.Iteractor
 import com.example.mobileuptestapp.core.presentation.State
 import com.example.mobileuptestapp.main.data.CryptoModel
 import com.example.mobileuptestapp.main.presentation.CryptoUi
-import java.lang.Exception
 
 class MainIteractor(
     private val repository: Repository<List<CryptoModel>>,

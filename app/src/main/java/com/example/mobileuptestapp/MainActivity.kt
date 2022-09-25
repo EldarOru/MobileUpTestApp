@@ -1,7 +1,7 @@
 package com.example.mobileuptestapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mobileuptestapp.main.presentation.MainFragment
 
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), ShowFragment {
     }
 
     private fun show(fragment: Fragment, add: Boolean) {
-        //todo make OOP
+        //TODO исправить
         val transaction = supportFragmentManager.beginTransaction()
         val container = R.id.main_container
         if (add)

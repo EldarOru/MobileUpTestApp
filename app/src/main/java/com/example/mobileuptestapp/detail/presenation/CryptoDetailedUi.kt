@@ -17,7 +17,7 @@ class CryptoDetailedUi(
     private fun categoriesToString(): String {
         var res = ""
         categories.map {
-            res+=it + "\n"
+            res += it + "\n"
         }
         return res
     }

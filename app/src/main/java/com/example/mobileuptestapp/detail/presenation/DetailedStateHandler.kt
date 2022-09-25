@@ -5,7 +5,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import com.example.mobileuptestapp.core.presentation.State
 import com.example.mobileuptestapp.core.presentation.StateHandler
 
 class DetailedStateHandler(

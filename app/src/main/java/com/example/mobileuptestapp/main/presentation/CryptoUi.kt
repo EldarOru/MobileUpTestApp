@@ -16,7 +16,7 @@ data class CryptoUi(
     private val current_price: Double,
     private val ath_change_percentage: Double,
     private val currency: String
-): ToMapper<CryptoTransfer> {
+) : ToMapper<CryptoTransfer> {
 
     override fun map() = CryptoTransfer(id, name)
 
@@ -24,10 +24,17 @@ data class CryptoUi(
 
     fun sameCrypto(cryptoUi: CryptoUi) = this == cryptoUi
 
-    fun setInfo(name: TextView, image: ImageView, currentPrice: TextView, change: PositiveAndNegativeTextView,
-        shortName: TextView, context: Context) {
+    fun setInfo(
+        name: TextView,
+        image: ImageView,
+        currentPrice: TextView,
+        change: PositiveAndNegativeTextView,
+        shortName: TextView,
+        context: Context
+    ) {
         name.text = this.name
-        currentPrice.text = context.getString(R.string.current_price, getCurrency(), current_price.toString())
+        currentPrice.text =
+            context.getString(R.string.current_price, getCurrency(), current_price.toString())
         change.setText(ath_change_percentage)
         shortName.text = symbol.uppercase()
         //TODO сделать отдельный класс для картинок
@@ -35,7 +42,7 @@ data class CryptoUi(
     }
 
     private fun getCurrency(): String {
-        return when(currency) {
+        return when (currency) {
             "usd" -> "$"
             "eur" -> "€"
             else -> "undefined"
