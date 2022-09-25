@@ -2,6 +2,7 @@ package com.example.mobileuptestapp.main.presentation
 
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
@@ -14,10 +15,11 @@ class MainStateHandler(
     progressBar: ProgressBar,
     errorButton: Button,
     errorText: TextView,
+    errorImageView: ImageView,
     private val recyclerView: SwipeRefreshLayout,
     private val adapter: ListAdapter<CryptoUi, MainAdapter.CryptoVH>
 ) : StateHandler<List<CryptoUi>>(
-    progressBar, errorButton, errorText
+    progressBar, errorButton, errorText, errorImageView
 ) {
 
     override fun hideInfoLayout() {

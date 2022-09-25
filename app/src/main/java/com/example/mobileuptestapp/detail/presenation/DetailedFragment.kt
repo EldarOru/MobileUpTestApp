@@ -29,6 +29,7 @@ class DetailedFragment : BaseFragment<DetailedFragmentBinding>() {
             binding.progressBar,
             binding.retryButton,
             binding.errorTv,
+            binding.errorImg,
             InfoLayout(
                 binding.infoLayout,
                 binding.detailedImage,

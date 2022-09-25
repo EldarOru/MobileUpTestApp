@@ -2,6 +2,7 @@ package com.example.mobileuptestapp.core.presentation
 
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 
@@ -9,11 +10,13 @@ abstract class StateHandler<T>(
     private val progressBar: ProgressBar,
     private val errorButton: Button,
     private val errorText: TextView,
+    private val errorImage: ImageView
 ) {
 
     private fun showLoading() {
         errorButton.visibility = View.GONE
         errorText.visibility = View.GONE
+        errorImage.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
         hideInfoLayout()
     }
@@ -23,6 +26,7 @@ abstract class StateHandler<T>(
         hideInfoLayout()
         errorButton.visibility = View.VISIBLE
         errorText.visibility = View.VISIBLE
+        errorImage.visibility = View.VISIBLE
         errorText.text = error
     }
 
@@ -30,6 +34,7 @@ abstract class StateHandler<T>(
         progressBar.visibility = View.GONE
         errorButton.visibility = View.GONE
         errorText.visibility = View.GONE
+        errorImage.visibility = View.GONE
         showLayoutInfo(data)
     }
 

@@ -28,6 +28,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
         val progressBar = binding.progressBar
         val errorButton = binding.retryButton
         val errorTextView = binding.errorTv
+        val errorImage = binding.errorImg
         val swipeRefreshLayout = binding.swipeRefresh
         recyclerView = binding.cryptoRv
 
@@ -38,6 +39,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
                 progressBar,
                 errorButton,
                 errorTextView,
+                errorImage,
                 swipeRefreshLayout,
                 mainAdapter
             )
