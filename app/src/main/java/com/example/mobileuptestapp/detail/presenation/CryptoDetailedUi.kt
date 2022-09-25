@@ -26,9 +26,7 @@ class CryptoDetailedUi(
     }
 
     private fun cleanDescription(): String {
-        val regex = Regex("<a\\b[^>]+>([^<]*(?:(?!</a)<[^<]*)*)</a>")
-        //TODO исправить
-        val secRegex = Regex("<a.*?</a>")
+        val secRegex = Regex("<[^>]*>")
         return secRegex.replace(this.description, "")
     }
 }
