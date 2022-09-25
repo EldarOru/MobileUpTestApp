@@ -5,8 +5,10 @@
     <string name="description">Description</string>
     <string name="category">Category</string>
     <string name="retry">Retry</string>
-    <string name="no_connection">No connection</string>
-    <string name="service_unavailable">Service is unavailable</string>
+    <string name="no_connection">Ops! Something went wrong with your internet connection \n
+    Please check it and try again :)</string>
+    <string name="service_unavailable">No way! Service is unavailable \n
+    Are you going to try again?</string>
     <string name="generic_fail_message">Error</string>
-    <string name="error">Error</string>
+    <string name="error">Some error</string>
 </resources>

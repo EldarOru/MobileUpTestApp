@@ -6,6 +6,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.mobileuptestapp.core.presentation.State
 import com.example.mobileuptestapp.core.presentation.StateHandler
 
@@ -13,7 +14,7 @@ class MainStateHandler(
     progressBar: ProgressBar,
     errorButton: Button,
     errorText: TextView,
-    private val recyclerView: RecyclerView,
+    private val recyclerView: SwipeRefreshLayout,
     private val adapter: ListAdapter<CryptoUi, MainAdapter.CryptoVH>
 ) : StateHandler<List<CryptoUi>>(
     progressBar, errorButton, errorText

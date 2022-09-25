@@ -11,8 +11,6 @@ import com.example.mobileuptestapp.ProvideMainViewModel
 import com.example.mobileuptestapp.core.presentation.BaseFragment
 import com.example.mobileuptestapp.databinding.MainFragmentBinding
 import com.example.mobileuptestapp.detail.presenation.DetailedFragment
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainFragment : BaseFragment<MainFragmentBinding>() {
@@ -30,12 +28,19 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
         val progressBar = binding.progressBar
         val errorButton = binding.retryButton
         val errorTextView = binding.errorTv
+        val swipeRefreshLayout = binding.swipeRefresh
         recyclerView = binding.cryptoRv
 
         setRecyclerView()
 
         val stateHandler =
-            MainStateHandler(progressBar, errorButton, errorTextView, recyclerView, mainAdapter)
+            MainStateHandler(
+                progressBar,
+                errorButton,
+                errorTextView,
+                swipeRefreshLayout,
+                mainAdapter
+            )
 
         viewModel = (activity?.application as ProvideMainViewModel).provideMainVideModel()
 
@@ -44,8 +49,6 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
         viewModel.observeData(this) {
             stateHandler.setState(it)
         }
-
-        binding.chipGroup.checkedChipId
     }
 
     private fun setRecyclerView() {
@@ -72,6 +75,12 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
             }
         }
         binding.retryButton.setOnClickListener {
+            lifecycleScope.launch {
+                viewModel.getData(checkedChip.type)
+            }
+        }
+        binding.swipeRefresh.setOnRefreshListener {
+            binding.swipeRefresh.isRefreshing = false
             lifecycleScope.launch {
                 viewModel.getData(checkedChip.type)
             }
