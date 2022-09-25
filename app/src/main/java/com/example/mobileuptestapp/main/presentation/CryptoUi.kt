@@ -1,7 +1,9 @@
 package com.example.mobileuptestapp.main.presentation
 
+import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.mobileuptestapp.R
 import com.example.mobileuptestapp.core.ToMapper
 import com.example.mobileuptestapp.customviews.PositiveAndNegativeTextView
 import com.squareup.picasso.Picasso
@@ -23,19 +25,14 @@ data class CryptoUi(
     fun sameCrypto(cryptoUi: CryptoUi) = this == cryptoUi
 
     fun setInfo(name: TextView, image: ImageView, currentPrice: TextView, change: PositiveAndNegativeTextView,
-        shortName: TextView) {
+        shortName: TextView, context: Context) {
         name.text = this.name
-        currentPrice.text = "${getCurrency()} ${this.current_price}"
+        currentPrice.text = context.getString(R.string.current_price, getCurrency(), current_price.toString())
         change.setText(ath_change_percentage)
         shortName.text = symbol.uppercase()
         //TODO сделать отдельный класс для картинок
         Picasso.get().load(this.image).into(image)
     }
-
-    //TODO убрать геттеры
-    fun getId() = this.id
-
-    fun getName() = this.name
 
     private fun getCurrency(): String {
         return when(currency) {

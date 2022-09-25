@@ -55,7 +55,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
 
     private fun setRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(context)
-        mainAdapter = MainAdapter {
+        mainAdapter = MainAdapter(requireContext()) {
             showFragment.show(DetailedFragment.newInstance(it.map()))
         }
         recyclerView.adapter = mainAdapter

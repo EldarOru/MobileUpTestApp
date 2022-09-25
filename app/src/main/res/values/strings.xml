@@ -11,4 +11,6 @@
     Are you going to try again?</string>
     <string name="generic_fail_message">Error</string>
     <string name="error">Some error</string>
+    <string name="current_price">%1$s %2$s</string>
+    <string name="percentage">%1$s %2$s</string>
 </resources>

@@ -12,6 +12,6 @@ class PositiveAndNegativeTextView(context: Context, attributeSet: AttributeSet) 
     fun setText(number: Double) {
         if (number < 0) setTextColor(ContextCompat.getColor(context, R.color.red))
         else setTextColor(ContextCompat.getColor(context, R.color.green))
-        text = number.toString() + " %"
+        text = context.getString(R.string.percentage, number.toString(), "%")
     }
 }
