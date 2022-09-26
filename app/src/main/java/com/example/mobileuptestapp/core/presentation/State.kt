@@ -6,7 +6,7 @@ sealed class State<T> {
 
     class Loaded<T>(private val data: T) : State<T>() {
 
-        //TODO Исправить
+        //геттер - плохо, позже исправить
         fun getData() = data
     }
 

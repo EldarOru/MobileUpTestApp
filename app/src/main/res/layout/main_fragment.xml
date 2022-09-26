@@ -32,13 +32,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/usd_chip"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    style="@style/CustomChip"
                     android:text="@string/usd"/>
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/eur_chip"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    style="@style/CustomChip"
                     android:text="@string/eur"/>
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>

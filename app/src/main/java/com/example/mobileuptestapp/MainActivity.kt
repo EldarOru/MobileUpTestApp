@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity(), ShowFragment {
     }
 
     private fun show(fragment: Fragment, add: Boolean) {
-        //TODO исправить
         val transaction = supportFragmentManager.beginTransaction()
         val container = R.id.main_container
         if (add)

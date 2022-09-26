@@ -37,7 +37,8 @@ data class CryptoUi(
             context.getString(R.string.current_price, getCurrency(), current_price.toString())
         change.setText(ath_change_percentage)
         shortName.text = symbol.uppercase()
-        //TODO сделать отдельный класс для картинок
+
+        //сделать отдельный класс обертку для пикассо
         Picasso.get().load(this.image).into(image)
     }
 

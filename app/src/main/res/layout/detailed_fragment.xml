@@ -23,7 +23,8 @@
                 android:id="@+id/back_button"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/back_arrow_foreground"/>
+                android:src="@drawable/back_arrow_foreground"
+                android:contentDescription="@string/back_button" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/crypto_toolbar_name"
@@ -58,7 +59,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/error_tv"
-            app:layout_constraintVertical_chainStyle="packed"/>
+            app:layout_constraintVertical_chainStyle="packed"
+            android:contentDescription="@string/error" />
 
     <TextView
         android:textColor="@color/black"
@@ -89,7 +91,8 @@
         android:layout_height="wrap_content"
         tools:src="@drawable/ic_launcher_background"
         android:layout_gravity="center"
-        android:id="@+id/detailed_image"/>
+        android:id="@+id/detailed_image"
+        android:contentDescription="@string/crypto_image" />
 
     <ScrollView
         android:layout_width="match_parent"

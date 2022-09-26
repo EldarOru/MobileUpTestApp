@@ -9,7 +9,7 @@ data class CryptoTransfer(
     private val name: String,
 ) : Parcelable {
 
-    //TODO Убрать геттеры
+    //исправить геттеры
     fun getId() = id
 
     fun getName() = name

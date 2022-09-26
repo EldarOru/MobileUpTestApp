@@ -21,14 +21,14 @@ class App : Application(), ProvideMainViewModel, ProvideDetailedViewModel {
             DetailModule(applicationContext).createViewModel() as CryptoDetailedViewModel<CryptoDetailedUi>
     }
 
-    override fun provideMainVideModel() = viewModel
+    override fun provideMainViewModel() = viewModel
 
     override fun provideDetailedViewModel() = detailedViewModel
 }
 
 interface ProvideMainViewModel {
 
-    fun provideMainVideModel(): MainViewModel<List<CryptoUi>>
+    fun provideMainViewModel(): MainViewModel<List<CryptoUi>>
 }
 
 interface ProvideDetailedViewModel {

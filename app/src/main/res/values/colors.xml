@@ -11,4 +11,6 @@
     <color name="green">#0FED18</color>
     <color name="orange">#FF9800</color>
     <color name="grey">#4A4848</color>
+    <color name="chip_unchecked_bg">#A5A1A1</color>
+    <color name="chip_checked_bg">#E4D095</color>
 </resources>

@@ -44,7 +44,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
                 mainAdapter
             )
 
-        viewModel = (activity?.application as ProvideMainViewModel).provideMainVideModel()
+        viewModel = (activity?.application as ProvideMainViewModel).provideMainViewModel()
 
         setClickListeners()
 
@@ -73,6 +73,7 @@ class MainFragment : BaseFragment<MainFragmentBinding>() {
                 viewModel.getData(checkedChip.type)
             }
         }
+
         binding.swipeRefresh.setOnRefreshListener {
             binding.swipeRefresh.isRefreshing = false
             lifecycleScope.launch {
