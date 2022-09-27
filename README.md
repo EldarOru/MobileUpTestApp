@@ -17,3 +17,8 @@
 5) Рефакторинг кода - 4 часа
 6) Ручное тестирование приложения - 2 часа  
 7) Написание тестов - если останется время
+
+# Скриншоты
+![image](https://user-images.githubusercontent.com/45011195/192538335-37a2fd37-8989-4c0c-a955-d21b7a7e3d31.png)
+![image](https://user-images.githubusercontent.com/45011195/192538501-e0b71f76-fe96-45a3-974f-83bd5a1a4102.png)
+![image](https://user-images.githubusercontent.com/45011195/192538638-9d9ca964-ad89-40e2-8966-bacdb43558cd.png)
